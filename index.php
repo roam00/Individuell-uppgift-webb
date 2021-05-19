@@ -15,7 +15,7 @@ if(isset($_SESSION['username'])){
 
     echo " Login success";
 
-    echo "<form action='logout.php'>";
+    echo "<form action='logout_process.php'>";
     echo "<button type='submit'> logout</button>";
     echo "</form>";
 }
@@ -45,15 +45,15 @@ if(!isset($_SESSION['username'])){
 
 <div class="box" id="header">
     <h1> User page </h1>
-    <form action="userpage.php">
-    <button type="submit"> User page</button>
+    <form action="comments.php">
+    <button type="submit"> Comments </button>
     </form>
 </div>
 
 <div class="box" id="header">
     <h1> User page 2 </h1>
-    <form action="userpage2.php">
-    <button type="submit"> User page 2</button>
+    <form action="förraindex.php">
+    <button type="submit"> Index </button>
     </form>
 </div>
 

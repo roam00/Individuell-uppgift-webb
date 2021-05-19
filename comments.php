@@ -19,7 +19,7 @@
 </div>
 
     <?php
-    include "./db/dbShowComment.php";
+    include "./db/Comments/dbShowComments.php";
     ?>
 
 </body>
