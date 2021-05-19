@@ -1,0 +1,44 @@
+body {
+    background: rgb(138, 169, 194);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url(../img/1601273079600.jpg);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+input[type=text] {
+    padding: 10px;
+    margin: 8px 0;
+    border: 2px 0 black;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+}
+
+button {
+    padding: 10px 30px;
+    border: none;
+    background-color: steelblue;
+    display: inline-block;
+    color: white;
+    border-radius: 5px;
+    width: 200px;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background: rgb(73, 73, 250);
+    color: white;
+}
+
+a {
+    padding: 10px 30px;
+    border: none;
+    background-color: steelblue;
+    display: inline-block;
+    color: white;
+    border-radius: 5px;
+    width: 200px;
+    transition-duration: 0.4s;
+}
