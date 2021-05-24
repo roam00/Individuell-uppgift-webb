@@ -1,7 +1,7 @@
 <?php
 
 function Search($username, $psw) {
-    $db = new SQLite3("labb2db.db");
+    $db = new SQLite3("../labb2db.db");
     $stmt = $db->prepare("SELECT * FROM 'User' WHERE username = :username");
     $stmt->bindParam(':username', $username, SQLITE3_TEXT);
     $result = $stmt->execute();
@@ -10,7 +10,7 @@ function Search($username, $psw) {
     $row = $result->fetchArray();
     if(sha1($row['salt'] . $psw) == $row['passwordhash']){
         echo "lyckad";
-        header('Location: ../index.php');
+        header('Location: ../../index.php');
         if(!isset($_SESSION['username'])){
             session_start();
             $_SESSION['username'] = $_POST['username'];
@@ -18,12 +18,12 @@ function Search($username, $psw) {
     }
     else{
         echo "<script>alert('Login failed')</script>";
-        header('Location: ../login.php');
+        header('Location: ../../login.php');
     }
 }
 
 function isUserInDB($username){
-    $db = new SQLite3("labb2db.db");
+    $db = new SQLite3("../labb2db.db");
     $stmt = $db->prepare("SELECT * FROM 'User' WHERE username = :username");
     $stmt->bindParam(':username', $username, SQLITE3_TEXT);
     $result = $stmt->execute();
@@ -37,7 +37,7 @@ function isUserInDB($username){
 }
 
 function isEmailInDB($email){
-    $db = new SQLite3("labb2db.db");
+    $db = new SQLite3("../labb2db.db");
     $stmt = $db->prepare("SELECT * FROM 'User' WHERE email = :email");
     $stmt->bindParam(':email', $email, SQLITE3_TEXT);
     $result = $stmt->execute();
@@ -62,7 +62,7 @@ function AddComment($salt){
     $email = $_POST['email'];    
     $passwordhash = sha1 ($salt . $password);
 
-    $db = new SQLite3("labb2db.db");
+    $db = new SQLite3("../labb2db.db");
     $sql = "INSERT INTO 'User' ('username', 'email', 'passwordhash', 'salt') VALUES (:username, :email, :passwordhash, :salt)";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':username', $username, SQLITE3_TEXT); 
@@ -84,7 +84,7 @@ function AddComment($salt){
 
 function Show(){
 
-$db = new SQLite3("./db/labb2db.db");
+$db = new SQLite3("../labb2db.db");
 $result = $db->query("SELECT comment, name FROM 'Comments' ORDER BY commentID");
     
 while ($row = $result->fetchArray())

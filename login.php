@@ -20,7 +20,7 @@
 </div>
 
 <div class="box">
-    <form id="formid" method="post" action="./db/verification.php">
+    <form id="formid" method="post" action="./db/Login_Register/verification.php">
 
     <label for="username">Username: </label><br>
     <input type="text" id="username" name="username"><br>

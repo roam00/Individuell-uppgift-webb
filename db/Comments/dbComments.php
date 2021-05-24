@@ -6,7 +6,7 @@ function AddComment(){
     $message = $_POST['comment'];
     $email = $_POST['email'];
 
-    $db = new SQLite3("sqlite.db");
+    $db = new SQLite3("../labb2db.db");
     $sql = "INSERT INTO 'Comments' ('name', 'comment', email) VALUES (:user, :message, :email)";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':user', $user, SQLITE3_TEXT); 
@@ -28,7 +28,7 @@ function AddComment(){
 
 function Show(){
 
-$db = new SQLite3("./db/sqlite.db");
+$db = new SQLite3("db/labb2db.db");
 $result = $db->query("SELECT comment, name FROM 'Comments' ORDER BY commentID");
     
 while ($row = $result->fetchArray())

@@ -1,7 +1,7 @@
 body {
     background: rgb(138, 169, 194);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-image: url(../img/1601273079600.jpg);
+    background-image: url(../img/1615081173119.jpg);
 }
 
 *, *::before, *::after {
@@ -32,6 +32,7 @@ button:hover {
     color: white;
 }
 
+/*
 a {
     padding: 10px 30px;
     border: none;
@@ -42,3 +43,28 @@ a {
     width: 200px;
     transition-duration: 0.4s;
 }
+*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #111;;
+}
+

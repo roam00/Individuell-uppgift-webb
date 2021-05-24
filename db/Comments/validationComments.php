@@ -1,7 +1,7 @@
 <?php
 
 
-header('Location: ../index.php');
+header('Location: ../../index.php');
 
 $errors = array();
 
@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     if(0 === count($errors)){
-        include "db.php";
+        include "dbComments.php";
         AddComment();
     }
     else{

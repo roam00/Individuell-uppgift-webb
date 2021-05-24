@@ -1,7 +1,7 @@
 <?php
 
 
-header('Location: ../register.php');
+header('Location: ../../index.php');
 
 $errors = array();
 
@@ -29,6 +29,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     if(0 === count($errors)){
+        
         session_start();
         unset($_SESSION['error']);
         $_SESSION['username'] = $_POST['username'];

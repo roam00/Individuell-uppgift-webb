@@ -31,7 +31,7 @@ else{
 
 
 <div class="box">
-    <form id="formid" method="post" action="./db/validation.php">
+    <form id="formid" method="post" action="db/Login_Register/validation.php">
 
     <label for="username">Username: </label><br>
     <input type="text" id="username" name="username"><br>

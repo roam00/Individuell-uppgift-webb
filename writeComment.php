@@ -17,7 +17,7 @@
     <h2>Skapa ett inlägg: </h2>
     <div id="error"></div>
     <div class="box">
-    <form id="formId" method="post" action="./db/validation.php">
+    <form id="formId" method="post" action="./db/Comments/validationComments.php">
     
         <label for="name1">Namn: </label><br>
         <input type="text" id="name1" name="name1">

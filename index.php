@@ -8,57 +8,24 @@
 </head>
 <body>
 
-<?php
-
-if(isset($_SESSION['username'])){
-    echo $_SESSION['username'];
-
-    echo " Login success";
-
-    echo "<form action='logout_process.php'>";
-    echo "<button type='submit'> logout</button>";
-    echo "</form>";
-}
-
-?>
-<?php
-
-if(!isset($_SESSION['username'])){
-    echo "<div class='box' id='header'>";
-    echo "<h1> Register user </h1>";
-    echo "<form action='register.php'>";
-    echo "<button type='submit'> Register </button>";
-    echo "</form>";
-    echo "</div>";
-
-    echo "<div class='box' id='header'>";
-    echo "<h1> Log in </h1>";
-    echo "<form action='login.php'>";
-    echo "<button type='submit'> Log in</button>";
-    echo "</form>";
-    echo "</div>";
-
-}
-?>
 
 
 
-<div class="box" id="header">
-    <h1> User page </h1>
-    <form action="comments.php">
-    <button type="submit"> Comments </button>
-    </form>
-</div>
-
-<div class="box" id="header">
-    <h1> User page 2 </h1>
-    <form action="förraindex.php">
-    <button type="submit"> Index </button>
-    </form>
-</div>
-
-</form>
-
+<ul>
+    <li><a href="index.php">Home</a></li>
+    <li><a href="comments.php">Show comments</a></li>
+    <li><a href="writeComment.php">Write a comment</a></li>
+    <?php
+    if(!isset($_SESSION['username'])){
+        echo "<li style='float: right;'><a href='register.php'>Sign up</a></li>
+        <li style='float: right;'><a href='login.php'>Log in</a></li>";
+    }
+    if(isset($_SESSION['username'])){
+        echo "<li style='float: right;'><a href='profile.php'>My profile</a></li>
+        <li style='float: right;'><a href='logout_process.php'>Log out</a></li>";
+    }
+    ?>
+</ul>
 
 </body>
 </html>
