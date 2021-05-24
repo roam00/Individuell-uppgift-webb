@@ -1,5 +1,6 @@
 <?php
 
+
 function Search($username, $psw) {
     $db = new SQLite3("../labb2db.db");
     $stmt = $db->prepare("SELECT * FROM 'User' WHERE username = :username");
@@ -22,6 +23,7 @@ function Search($username, $psw) {
     }
 }
 
+
 function isUserInDB($username){
     $db = new SQLite3("../labb2db.db");
     $stmt = $db->prepare("SELECT * FROM 'User' WHERE username = :username");
@@ -36,6 +38,7 @@ function isUserInDB($username){
     }
 }
 
+
 function isEmailInDB($email){
     $db = new SQLite3("../labb2db.db");
     $stmt = $db->prepare("SELECT * FROM 'User' WHERE email = :email");
@@ -49,6 +52,7 @@ function isEmailInDB($email){
         return false;
     }
 }
+
 
 function SaltGeneration(){
     return substr(sha1(mt_rand()), 0, 22);
@@ -78,25 +82,6 @@ function AddComment($salt){
         $db->close();
         return false;
     }
-
-}
-
-
-function Show(){
-
-$db = new SQLite3("../labb2db.db");
-$result = $db->query("SELECT comment, name FROM 'Comments' ORDER BY commentID");
-    
-while ($row = $result->fetchArray())
-{
-    echo "<h4>" . $row['comment'] . "</h4>" ;
-    echo "Skriven av: " . $row['name'];
-    
-    echo "<br><br><br><br>";
-    
-}
-$db->close();
-
 }
 
 ?>

@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title> Register user </title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/style.css">
+    <script defer src="js/javaRegister.js"></script>
 </head>
 
 <body>
 
-<?php
+    <?php
 session_start();
 if(isset($_SESSION['username'])){
     header("Location: index.php");
@@ -25,29 +27,28 @@ else{
 
 ?>
 
-<div class="box" id="header">
-    <h1> Register user </h1>
-</div>
+    <div class="box" id="header">
+        <h1> Register user </h1>
+    </div>
 
+    <div id="error"></div>
 
-<div class="box">
-    <form id="formid" method="post" action="db/Login_Register/validation.php">
+    <div class="box">
+        <form id="formId" method="post" action="db/Login_Register/validation.php">
 
-    <label for="username">Username: </label><br>
-    <input type="text" id="username" name="username"><br>
+            <label for="username">Username: </label><br>
+            <input type="text" id="username" name="username"><br>
 
-    <label for="email">Email: </label><br>
-    <input type="text" id="email" name="email"><br>
+            <label for="email">Email: </label><br>
+            <input type="text" id="email" name="email"><br>
 
-    <label for="password">Password: </label><br>
-    <input type="text" id="password" name="password"><br>
+            <label for="password">Password: </label><br>
+            <input type="text" id="password" name="password"><br>
 
-    <button type="submit">Submit</button>
-</div>
+            <button type="submit">Submit</button>
+    </div>
 
-</form>
-
-
+    </form>
 
 </body>
 

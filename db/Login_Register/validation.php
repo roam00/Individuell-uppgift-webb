@@ -1,8 +1,5 @@
 <?php
-
-
 header('Location: ../../index.php');
-
 $errors = array();
 
 include "db.php";
@@ -41,6 +38,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $_SESSION['error'] = $errors;
     }
 }
-
 
 ?>

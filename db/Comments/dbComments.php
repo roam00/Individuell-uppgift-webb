@@ -1,13 +1,17 @@
 <?php
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
 
 
 function AddComment(){
-    $user = $_POST['name1'];
+   
+    $user = $_SESSION['username'];
     $message = $_POST['comment'];
-    $email = $_POST['email'];
 
     $db = new SQLite3("../labb2db.db");
-    $sql = "INSERT INTO 'Comments' ('name', 'comment', email) VALUES (:user, :message, :email)";
+    $sql = "INSERT INTO 'Comments' ('name', 'comment') VALUES (:user, :message)";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':user', $user, SQLITE3_TEXT); 
     $stmt->bindParam(':message', $message, SQLITE3_TEXT);
@@ -24,7 +28,6 @@ function AddComment(){
 
 }
 
-//"<h3>" . "Kommentar: " . "</h3>" . 
 
 function Show(){
 
