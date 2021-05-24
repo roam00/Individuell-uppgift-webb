@@ -19,6 +19,8 @@
     <h1> Log in </h1>
 </div>
 
+<div id="error"></div>
+
 <div class="box">
     <form id="formid" method="post" action="./db/Login_Register/verification.php">
 
@@ -31,6 +33,12 @@
     <button type="submit">Submit</button>
 </div>
 </form>
+
+<div class="box">
+<h3> New here? 
+<a href="register.php">Register an account</a> 
+</h3>
+</div>
 
 </body>
 
