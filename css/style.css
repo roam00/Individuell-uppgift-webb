@@ -1,6 +1,6 @@
 body {
     background: rgb(138, 169, 194);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     background-image: url(../img/1615081173119.jpg);
 }
 
@@ -8,11 +8,12 @@ body {
     box-sizing: border-box;
 }
 
+
 input[type=text] {
     padding: 10px;
     margin: 8px 0;
-    border: 2px 0 black;
     box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    border: 2px 0 black;
     border-radius: 8px;
 }
 
@@ -68,10 +69,39 @@ li a:hover {
     background-color: #111;;
 }
 
-/*
+
 #error {
     font-size: large;
-    color: black;
-    background-color: #98d2e9;
     width: 200px;
+    
+}
+
+
+
+#idNum {
+    display:  inline-block;
+    margin-right: 300px;
+}
+
+#idName {
+    display: inline-block;
+}
+
+.commentBox {
+    width: 600px;
+    background-color: rgba(203, 207, 209, 0.658);
+    padding: 0%;
+}
+
+.commentTop {
+    background-color: rgba(93, 129, 153, 0.479);
+    height: 40px;
+}
+
+.commentMid {
+    border-top: darkviolet;
+}
+
+.commentBottom {
+    
 }

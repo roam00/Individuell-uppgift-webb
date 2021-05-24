@@ -3,6 +3,7 @@ const errorElement = document.getElementById("error")
 const username = document.getElementById("username")
 const email = document.getElementById("email")
 const password = document.getElementById("password")
+const userError = document.getElementById("userError")
 
 
 function valideraEmail(email){
