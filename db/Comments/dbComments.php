@@ -11,7 +11,7 @@ function AddComment(){
     $message = $_POST['comment'];
 
     date_default_timezone_set("Europe/Stockholm");
-    $date = date("Y-m-d h:i:s");
+    $date = date("Y-m-d H:i:s");
 
 
     $db = new SQLite3("../labb2db.db");
