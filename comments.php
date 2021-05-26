@@ -1,3 +1,14 @@
+<?php
+session_start();
+if(!(isset($_SESSION['username']))){
+    
+    header('Location: login.php');
+    
+    die();
+    echo "You have to log in to access that page";
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -11,20 +22,11 @@
 
 <body>
 
-    <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="comments.php">Show comments</a></li>
-        <li><a href="writeComment.php">Write a comment</a></li>
-        <?php
-    session_start();
-    if(!isset($_SESSION['username'])){
-        echo "<li style='float: right;'><a href='register.php'>Sign up</a></li>
-        <li style='float: right;'><a href='login.php'>Log in</a></li>";
-    }
-    ?>
-    </ul>
+    <?php
+include "html/_header.php";
+?>
 
-    <br><br>
+
 
     <div class="box" id="boxComment">
         <h1>Welcome to the comments page <br>
@@ -32,9 +34,20 @@
     </div>
 
     <?php
+     echo "<div id='center'>";
+
+    
     include "db/Comments/dbComments.php";
     Show();
+
+    echo "</div>";
     ?>
+
+
+    <?php
+include "html/_footer.php";
+    ?>
+
 
 </body>
 

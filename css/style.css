@@ -99,9 +99,33 @@ li a:hover {
 }
 
 .commentMid {
-    border-top: darkviolet;
+    
+    
+    width: 600px;
+   
 }
 
 .commentBottom {
-    
+    background-color: rgba(93, 129, 153, 0.479);
+}
+
+#center {
+    position: absolute;
+    left: 20%;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+
+}
+
+#spacer {
+    text-indent: 5em;
+    height: 200px;
 }

@@ -17,11 +17,16 @@ if(!(isset($_SESSION['username']))){
     <title>Write comment</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/style.css">
-    <script defer src="js/javaS.js"></script>
+    <script defer src="js/javaComment.js"></script>
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 </head>
 
 <body>
+
+    <?php
+include "html/_header.php";
+?>
+
 
     <h2>Make a comment: </h2>
     <div id="error"></div>
@@ -39,6 +44,11 @@ if(!(isset($_SESSION['username']))){
         </form>
 
     </div>
+
+    <?php
+include "html/_footer.php";
+    ?>
+
 </body>
 
 </html>

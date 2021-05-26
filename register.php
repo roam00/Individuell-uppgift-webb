@@ -10,6 +10,12 @@
 
 <body>
 
+<?php
+include "html/_header.php";
+?>
+
+
+
     <?php
 session_start();
 if(isset($_SESSION['username'])){
@@ -49,6 +55,13 @@ else{
     </div>
 
     </form>
+
+
+
+
+<?php
+include "html/_footer.php";
+    ?>
 
 </body>
 

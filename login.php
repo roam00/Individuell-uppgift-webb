@@ -9,6 +9,11 @@
 
 <body>
 
+
+<?php
+include "html/_header.php";
+?>
+
     <div class="box" id="header">
         <h1> Log in </h1>
     </div>
@@ -33,6 +38,11 @@
             <a href="register.php">Register an account</a>
         </h3>
     </div>
+
+
+<?php
+include "html/_footer.php";
+    ?>
 
 </body>
 

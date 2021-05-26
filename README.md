@@ -8,3 +8,11 @@ TODO
 (göra en session variabel eller göra en currentPage check som säger vilken sida jag är inne på)
 * kolla så att lösenordet håller rätt standard
 * döpa om addcomment till insertToDatabase
+* javascript / php till register som varnar om email redan finns i databasen
+* göra kommentarsrutan fixed och större
+* lagra PK istället för användarnamn
+
+
+
+frågor: 
+* footer blockar kommentarer
