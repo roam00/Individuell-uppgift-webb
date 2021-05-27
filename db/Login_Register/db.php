@@ -1,20 +1,51 @@
 <?php
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
 
 
-function Search($username, $psw) {
+function FindId($username) {
     $db = new SQLite3("../labb2db.db");
-    $stmt = $db->prepare("SELECT * FROM 'User' WHERE username = :username");
+    $sql = "SELECT * FROM 'User' WHERE username = :username";
+    $stmt = $db->prepare($sql);
     $stmt->bindParam(':username', $username, SQLITE3_TEXT);
     $result = $stmt->execute();
-    //echo "hej";
-    //echo gettype($result);
+
+    $row = $result->fetchArray();
+
+    return $row['userId'];
+
+}
+
+function FindUsername($userId) {
+    $db = new SQLite3("../labb2db.db");
+    $sql = "SELECT * FROM 'User' WHERE userId = :userId";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':userId', $userId, SQLITE3_TEXT);
+    $result = $stmt->execute();
+
+    $row = $result->fetchArray();
+
+    return $row['username'];
+
+}
+
+
+
+function Search($userId, $psw) {
+
+    $db = new SQLite3("../labb2db.db");
+    $stmt = $db->prepare("SELECT * FROM 'User' WHERE userId = :userId");
+    $stmt->bindParam(':userId', $userId, SQLITE3_TEXT);
+    $result = $stmt->execute();
     $row = $result->fetchArray();
     if(sha1($row['salt'] . $psw) == $row['passwordhash']){
         echo "lyckad";
         header('Location: ../../index.php');
-        if(!isset($_SESSION['username'])){
+        if(!isset($_SESSION['userId'])){
             session_start();
-            $_SESSION['username'] = $_POST['username'];
+            $_SESSION['userId'] = $userId;
         }
     }
     else{
@@ -22,6 +53,7 @@ function Search($username, $psw) {
         header('Location: ../../login.php');
     }
 }
+
 
 
 function isUserInDB($username){
@@ -59,7 +91,7 @@ function SaltGeneration(){
 }
 
 
-function AddComment($salt){
+function InsertIntoDatabase($salt){
 
     $password = $_POST['password'];
     $username = $_POST['username'];
@@ -83,5 +115,7 @@ function AddComment($salt){
         return false;
     }
 }
+
+
 
 ?>

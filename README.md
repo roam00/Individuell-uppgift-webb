@@ -15,6 +15,8 @@ TODO
 * login.php fixa varningar
 * (klar) ta bort inline css från header
 * resetta "Email already in use."
+* läsa på om prepare inom DB osv
+* ta bort username column från comments
 
 
 frågor: 

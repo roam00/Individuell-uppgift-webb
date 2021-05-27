@@ -5,6 +5,7 @@
     <title> Log in </title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/style.css">
+    <script defer src="js/javaLogin.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,7 @@ include "html/_header.php";
         <div id="error"></div>
 
         <div class="box">
-            <form id="formid" method="post" action="./db/Login_Register/verification.php">
+            <form id="formId" method="post" action="./db/Login_Register/verification.php">
 
                 <label for="username">Username: </label><br>
                 <input type="text" id="username" name="username"><br>

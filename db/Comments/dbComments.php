@@ -6,8 +6,11 @@ if(!isset($_SESSION))
 
 
 function AddComment(){
-   
-    $user = $_SESSION['username'];
+
+    
+
+    $userId = $_SESSION['userId'];
+    $username = $_SESSION['username'];
     $message = $_POST['comment'];
 
     date_default_timezone_set("Europe/Stockholm");
@@ -15,9 +18,10 @@ function AddComment(){
 
 
     $db = new SQLite3("../labb2db.db");
-    $sql = "INSERT INTO 'Comments' ('name', 'comment', 'date') VALUES (:user, :message, :date)";
+    $sql = "INSERT INTO 'Comments' ('userId', 'comment', 'date', 'username') VALUES (:userId, :message, :date, :username)";
     $stmt = $db->prepare($sql);
-    $stmt->bindParam(':user', $user, SQLITE3_TEXT); 
+    $stmt->bindParam(':userId', $userId, SQLITE3_TEXT); 
+    $stmt->bindParam(':username', $username, SQLITE3_TEXT); 
     $stmt->bindParam(':message', $message, SQLITE3_TEXT);
     $stmt->bindParam(':date', $date, SQLITE3_TEXT);
 
@@ -36,7 +40,7 @@ function AddComment(){
 function Show(){
 
 $db = new SQLite3("db/labb2db.db");
-$result = $db->query("SELECT comment, name, commentID, date FROM 'Comments' ORDER BY commentID");
+$result = $db->query("SELECT comment, username, commentID, date FROM 'Comments' ORDER BY commentID");
     
 
 echo "<div class='formDiv' id='commentPageDiv'>";
@@ -45,7 +49,7 @@ while ($row = $result->fetchArray())
     echo "<div class='commentBox'>
 
     <div class='commentTop'>
-    <h3 id='idNum'> #" . $row['commentID'] . "</h3> <h4 id='idName'> Author: " . $row['name'] . "</h4>
+    <h3 id='idNum'> #" . $row['commentID'] . "</h3> <h4 id='idName'> Author: " . $row['username'] . "</h4>
     </div>
     <div class='commentMid'> 
     <h2>" . $row['comment'] . "</h2> 
