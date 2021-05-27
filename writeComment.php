@@ -27,21 +27,24 @@ if(!(isset($_SESSION['username']))){
 include "html/_header.php";
 ?>
 
+    <div class="formDiv" id="textDiv">
 
-    <h2>Make a comment: </h2>
-    <div id="error"></div>
+        <h2>Make a comment: </h2>
+        <div id="error"></div>
 
-    <br>
-    <div class="box">
-        <form id="formId" method="post" action="./db/Comments/validationComments.php">
+        <br>
+        <div class="box">
+            <form id="formId" method="post" action="./db/Comments/validationComments.php">
 
-            <label for="comment">Comment: </label><br>
-            <!-- <input type="text" id="comment" name="comment"><br> -->
-            <textarea name="comment" id="comment"></textarea><br>
+                <label for="comment">Comment: </label><br>
+                <!-- <input type="text" id="comment" name="comment"><br> -->
+                <textarea name="comment" id="comment"></textarea><br>
 
-            <button type="submit">Send</button>
+                <button type="submit">Send</button>
 
-        </form>
+            </form>
+
+        </div>
 
     </div>
 

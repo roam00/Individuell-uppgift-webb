@@ -38,12 +38,14 @@ function Show(){
 $db = new SQLite3("db/labb2db.db");
 $result = $db->query("SELECT comment, name, commentID, date FROM 'Comments' ORDER BY commentID");
     
+
+echo "<div class='formDiv' id='commentPageDiv'>";
 while ($row = $result->fetchArray())
 {
     echo "<div class='commentBox'>
 
     <div class='commentTop'>
-    <h3 id='idNum'> #" . $row['commentID'] . "</h3> <h3 id='idName'>" . $row['name'] . "</h3>
+    <h3 id='idNum'> #" . $row['commentID'] . "</h3> <h4 id='idName'> Author: " . $row['name'] . "</h4>
     </div>
     <div class='commentMid'> 
     <h2>" . $row['comment'] . "</h2> 
@@ -55,6 +57,7 @@ while ($row = $result->fetchArray())
     </div>";
     
 }
+echo "</div>";
 $db->close();
 
 }

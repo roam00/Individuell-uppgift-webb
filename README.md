@@ -9,15 +9,13 @@ TODO
 * kolla så att lösenordet håller rätt standard
 * döpa om addcomment till insertToDatabase
 * javascript / php till register som varnar om email redan finns i databasen
-* göra kommentarsrutan fixed och större
+* (klar) göra kommentarsrutan fixed och större
 * lagra PK istället för användarnamn
 * göra input type password ist för text
 * login.php fixa varningar
-//* ta bort inline css från header
-
+* (klar) ta bort inline css från header
+* resetta "Email already in use."
 
 
 frågor: 
 * footer blockar kommentarer
-* j query-krav får VG på individuella?
-* varning endast från js eller php också?

@@ -10,11 +10,13 @@
 
 <body>
 
+
 <?php
 include "html/_header.php";
 ?>
 
 
+<div class="formDiv">
 
     <?php
 session_start();
@@ -49,7 +51,7 @@ else{
             <input type="text" id="email" name="email"><br>
 
             <label for="password">Password: </label><br>
-            <input type="text" id="password" name="password"><br>
+            <input type="password" id="password" name="password"><br>
 
             <button type="submit">Submit</button>
     </div>
@@ -57,7 +59,7 @@ else{
     </form>
 
 
-
+</div>
 
 <?php
 include "html/_footer.php";

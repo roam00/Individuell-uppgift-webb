@@ -27,11 +27,10 @@ include "html/_header.php";
 ?>
 
 
+<div class="box" id="boxComment">
+    <h1>Comment page </h1>
+</div>
 
-    <div class="box" id="boxComment">
-        <h1>Welcome to the comments page <br>
-            Here you can see all the comments </h1>
-    </div>
 
     <?php
      echo "<div id='center'>";
@@ -42,6 +41,7 @@ include "html/_header.php";
 
     echo "</div>";
     ?>
+
 
 
     <?php

@@ -1,7 +1,7 @@
 body {
     background: rgb(138, 169, 194);
     font-family:Arial, Helvetica, sans-serif;
-    background-image: url(../img/1615081173119.jpg);
+    background-image: url(../img/1620466604326.jpg);
 }
 
 *, *::before, *::after {
@@ -9,7 +9,7 @@ body {
 }
 
 
-input[type=text] {
+input[type=text], input[type=password] {
     padding: 10px;
     margin: 8px 0;
     box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
@@ -24,7 +24,7 @@ button {
     display: inline-block;
     color: white;
     border-radius: 5px;
-    width: 200px;
+    width: 193px;
     transition-duration: 0.4s;
 }
 
@@ -33,18 +33,6 @@ button:hover {
     color: white;
 }
 
-/*
-a {
-    padding: 10px 30px;
-    border: none;
-    background-color: steelblue;
-    display: inline-block;
-    color: white;
-    border-radius: 5px;
-    width: 200px;
-    transition-duration: 0.4s;
-}
-*/
 
 ul {
     list-style-type: none;
@@ -70,13 +58,22 @@ li a:hover {
 }
 
 
+textarea {
+    resize: none;
+    width: 400px;
+    height: 150px;
+    padding: 10px;
+    margin: 8px 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    border: 2px 0 black;
+    border-radius: 8px;
+}
+
 #error {
     font-size: large;
     width: 200px;
     
 }
-
-
 
 #idNum {
     display:  inline-block;
@@ -84,7 +81,7 @@ li a:hover {
 }
 
 #idName {
-    display: inline-block;
+    float: right;
 }
 
 .commentBox {
@@ -130,17 +127,31 @@ li a:hover {
     height: 200px;
 }
 
-textarea {
-    resize: none;
-    width: 400px;
-    height: 150px;
-    padding: 10px;
-    margin: 8px 0;
-    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
-    border: 2px 0 black;
-    border-radius: 8px;
-}
 
 .right {
     float: right;
 }
+
+.formDiv {
+    background-color: lightgray;
+    width: 294px;
+    min-height: 400px;
+    padding: 50px 50px;
+}
+
+#textDiv {
+    width: 500px;
+}
+
+#commentPageDiv {
+    width: 700px;
+}
+
+/*
+#commentIntro {
+    width: 500px;
+    min-height: 10px;
+    height: 150px;
+}
+*/
+
