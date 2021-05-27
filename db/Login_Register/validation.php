@@ -1,5 +1,5 @@
 <?php
-header('Location: ../../index.php');
+
 $errors = array();
 
 session_start();
@@ -28,11 +28,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     if(0 === count($errors)){
+        header('Location: ../../index.php');
         unset($_SESSION['error']);
         $_SESSION['username'] = $_POST['username'];
         AddComment(SaltGeneration());
     }
     else{
+        header('Location: ../../register.php');
         $_SESSION['error'] = $errors;
     }
 }

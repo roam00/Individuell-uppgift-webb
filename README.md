@@ -11,8 +11,13 @@ TODO
 * javascript / php till register som varnar om email redan finns i databasen
 * göra kommentarsrutan fixed och större
 * lagra PK istället för användarnamn
+* göra input type password ist för text
+* login.php fixa varningar
+//* ta bort inline css från header
 
 
 
 frågor: 
 * footer blockar kommentarer
+* j query-krav får VG på individuella?
+* varning endast från js eller php också?

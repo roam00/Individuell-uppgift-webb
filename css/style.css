@@ -129,3 +129,18 @@ li a:hover {
     text-indent: 5em;
     height: 200px;
 }
+
+textarea {
+    resize: none;
+    width: 400px;
+    height: 150px;
+    padding: 10px;
+    margin: 8px 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    border: 2px 0 black;
+    border-radius: 8px;
+}
+
+.right {
+    float: right;
+}
