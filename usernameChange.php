@@ -3,9 +3,11 @@
 
 include "db/Login_Register/changingInfo.php";
 
-UsernameChange('hampus2');
+UsernameChange("haba");
+UsernameChange($_SESSION['userId']);
+UsernameChange('haba');
+$hej = "haba";
+UsernameChange($hej);
 
-echo $_SESSION['userId'];
-echo $_SESSION['username'];
 
 ?>

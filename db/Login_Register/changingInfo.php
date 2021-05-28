@@ -5,9 +5,6 @@ if(!isset($_SESSION))
     session_start(); 
 } 
 
-function PasswordChange(){
-   
-}
 
 function UsernameChange($newUsername){
 
@@ -18,12 +15,14 @@ function UsernameChange($newUsername){
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':username', $newUsername, SQLITE3_TEXT);
     $stmt->bindParam(':userId', $userId, SQLITE3_INTEGER);
-    $stmt->execute();
+    if($stmt->execute()){
+        echo 'Updated rows: ', $db->changes();
+    }
+    else{
+        echo "nej";
+    }
     $db->close();
-}
-
-function EmailChange(){
-
+    
 }
 
 
