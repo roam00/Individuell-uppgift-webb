@@ -13,22 +13,72 @@
 include "html/_header.php";
 ?>
 
-<div class="formDiv">
+    <div class="formDiv">
 
 
-    <h1> Username: <?php echo $_SESSION['username']; ?> </h1>
 
-    <h1> UserID: <?php echo $_SESSION['userId']; ?> </h1>
+        <h1> Username: <?php echo $_SESSION['username']; ?> </h1>
 
-    <br>
-    <h1> Change username </h1>
+        <h1> UserID: <?php echo $_SESSION['userId']; ?> </h1>
 
-    <h1> Change password </h1>
-
-    <h1> Change email </h1>
+        <h1> Email: <?php include "db/Login_Register/db.php"; echo FindEmail($_SESSION['userId']); ?> </h1>
 
 
-</div>
+        <h2>Change your username </h2>
+        <div id="error"></div>
+
+
+        <?php
+        echo $_SESSION['error'] . "<br><br>";
+        ?>
+
+        <br>
+        <div class="box">
+            <form id="formId" method="post" action="db/Login_Register/usernameChange.php">
+
+                <label for="newUsername">New username: </label><br>
+                <input type="text" id="newUsername" name="newUsername"><br>
+
+                <button type="submit">Send</button>
+
+            </form>
+
+        </div>
+
+        <h2>Change your email </h2>
+        <div id="error"></div>
+
+        <br>
+        <div class="box">
+            <form id="formId" method="post" action="db/Login_Register/emailChange.php">
+
+                <label for="newEmail">New email: </label><br>
+                <input type="text" id="newEmail" name="newEmail"><br>
+
+                <button type="submit">Send</button>
+
+            </form>
+
+        </div>
+
+        <h2>Change your password </h2>
+        <div id="error"></div>
+
+        <br>
+        <div class="box">
+            <form id="formId" method="post" action="">
+
+                <label for="newPassword">New password: </label><br>
+                <input type="text" id="newPassword" name="newPassword"><br>
+
+                <button type="submit">Send</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
     <?php
 include "html/_footer.php";
     ?>

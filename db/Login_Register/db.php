@@ -31,6 +31,19 @@ function FindUsername($userId) {
 
 }
 
+function FindEmail($userId) {
+    $db = new SQLite3("db/labb2db.db");
+    $sql = "SELECT * FROM 'User' WHERE userId = :userId";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':userId', $userId, SQLITE3_TEXT);
+    $result = $stmt->execute();
+
+    $row = $result->fetchArray();
+
+    return $row['email'];
+
+}
+
 
 
 function Search($userId, $psw) {
@@ -116,6 +129,47 @@ function InsertIntoDatabase($salt){
     }
 }
 
+function UsernameChange($newUsername){
+
+    if(!isUserInDB($newUsername)){
+        $userId = $_SESSION['userId'];
+    $db = new SQLite3("../labb2db.db");
+    $sql = "UPDATE 'User' SET username = :newUsername WHERE userId = :userId";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':newUsername', $newUsername, SQLITE3_TEXT);
+    $stmt->bindParam(':userId', $userId, SQLITE3_INTEGER);
+    $stmt->execute();
+    $db->close();
+    $_SESSION['username'] = $newUsername;
+    }
+    else {
+        $_SESSION['error'] = "Username already taken";
+    
+    }
+
+    
+}
+
+function EmailChange($newEmail){
+
+    if(!isEmailInDB($newEmail)){
+        $userId = $_SESSION['userId'];
+        $db = new SQLite3("db/labb2db.db");
+        $sql = "UPDATE 'User' SET email = :newEmail WHERE userId = :userId";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':newEmail', $newEmail, SQLITE3_TEXT);
+        $stmt->bindParam(':userId', $userId, SQLITE3_INTEGER);
+        $stmt->execute();
+        $db->close();
+        $_SESSION['email'] = $newEmail;
+    
+    }
+    else {
+        $_SESSION['error'] = "Email already taken";
+    
+    }
+    
+}
 
 
 ?>

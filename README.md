@@ -17,6 +17,9 @@ TODO
 * resetta "Email already in use."
 * läsa på om prepare inom DB osv
 * ta bort username column från comments
+* kolla så att emailchange och usernameschange inte byter till värden som andra användare redan har
+* skriva kommentarer
+* bredda profil-diven
 
 
 frågor: 
