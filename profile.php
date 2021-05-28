@@ -1,4 +1,14 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if(!(isset($_SESSION['username']))){
+    
+    header('Location: login.php');
+    
+    die();
+    echo "You have to log in to access that page";
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -69,10 +79,10 @@ include "html/_header.php";
 
         <br>
         <div class="box">
-            <form id="formId" method="post" action="">
+            <form id="formId" method="post" action="db/Login_Register/passwordChange.php">
 
                 <label for="newPassword">New password: </label><br>
-                <input type="text" id="newPassword" name="newPassword"><br>
+                <input type="password" id="newPassword" name="newPassword"><br>
 
                 <button type="submit">Send</button>
 
