@@ -32,7 +32,7 @@ include "html/_header.php";
 
         <h1> UserID: <?php echo $_SESSION['userId']; ?> </h1>
 
-        <h1> email: <?php echo $_SESSION['email']; ?> </h1>
+        <h1> Email: <?php echo $_SESSION['email']; ?> </h1>
 
 
         <h2>Change your username </h2>
@@ -52,7 +52,7 @@ include "html/_header.php";
                 <label for="newUsername">New username: </label><br>
                 <input type="text" id="newUsername" name="newUsername"><br>
 
-                <button type="submit">Send</button>
+                <button type="submit">Update</button>
 
             </form>
 
@@ -68,7 +68,7 @@ include "html/_header.php";
                 <label for="newEmail">New email: </label><br>
                 <input type="text" id="newEmail" name="newEmail"><br>
 
-                <button type="submit">Send</button>
+                <button type="submit">Update</button>
 
             </form>
 
@@ -84,7 +84,7 @@ include "html/_header.php";
                 <label for="newPassword">New password: </label><br>
                 <input type="password" id="newPassword" name="newPassword"><br>
 
-                <button type="submit">Send</button>
+                <button type="submit">Update</button>
 
             </form>
 
