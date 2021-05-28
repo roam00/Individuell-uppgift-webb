@@ -34,6 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
         InsertIntoDatabase(SaltGeneration());
         $_SESSION['userId'] = FindId($_POST['username']);
+        $_SESSION['email'] = FindEmail(FindId($_POST['username']));
     }
     else{
         header('Location: ../../register.php');

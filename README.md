@@ -24,3 +24,5 @@ TODO
 * fixa password change.php
 * göra så att showcomments visar nuvarande namnet för userId och inte det för när den blev skriven
 * error vid login om det blir fel
+* överväg att ta bort footer
+* fråga stefan / hanna om forumtrådar ska ligga på nya sidor d.v.s. annan url
