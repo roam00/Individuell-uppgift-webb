@@ -10,7 +10,6 @@ function AddComment(){
     
 
     $userId = $_SESSION['userId'];
-    $username = $_SESSION['username'];
     $message = $_POST['comment'];
 
     date_default_timezone_set("Europe/Stockholm");
@@ -18,10 +17,9 @@ function AddComment(){
 
 
     $db = new SQLite3("../labb2db.db");
-    $sql = "INSERT INTO 'Comments' ('userId', 'comment', 'date', 'username') VALUES (:userId, :message, :date, :username)";
+    $sql = "INSERT INTO 'Comments' ('userId', 'comment', 'date') VALUES (:userId, :message, :date)";
     $stmt = $db->prepare($sql);
-    $stmt->bindParam(':userId', $userId, SQLITE3_TEXT); 
-    $stmt->bindParam(':username', $username, SQLITE3_TEXT); 
+    $stmt->bindParam(':userId', $userId, SQLITE3_TEXT);
     $stmt->bindParam(':message', $message, SQLITE3_TEXT);
     $stmt->bindParam(':date', $date, SQLITE3_TEXT);
 
@@ -36,20 +34,33 @@ function AddComment(){
 
 }
 
+function FindUsernameFromComments($userId) {
+    $db = new SQLite3("db/labb2db.db");
+    $sql = "SELECT * FROM 'User' WHERE userId = :userId";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':userId', $userId, SQLITE3_TEXT);
+    $result = $stmt->execute();
 
+    $row = $result->fetchArray();
+
+    return $row['username'];
+
+}
+
+
+/* . $row['username']*/
 function Show(){
 
 $db = new SQLite3("db/labb2db.db");
-$result = $db->query("SELECT comment, username, commentID, date FROM 'Comments' ORDER BY commentID");
+$result = $db->query("SELECT comment, commentID, userId, date FROM 'Comments' ORDER BY commentID");
     
-
 echo "<div class='formDiv' id='commentPageDiv'>";
 while ($row = $result->fetchArray())
 {
     echo "<div class='commentBox'>
 
     <div class='commentTop'>
-    <h3 id='idNum'> #" . $row['commentID'] . "</h3> <h4 id='idName'> Author: " . $row['username'] . "</h4>
+    <h3 id='idNum'> #" . $row['commentID'] . "</h3> <h4 id='idName'> Author: " . FindUsernameFromComments($row['userId']) . "</h4>
     </div>
     <div class='commentMid'> 
     <h2>" . $row['comment'] . "</h2> 

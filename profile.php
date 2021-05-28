@@ -13,15 +13,16 @@
 include "html/_header.php";
 ?>
 
-    <div class="formDiv">
+    <div class="formDiv" id="profileDiv">
 
 
 
         <h1> Username: <?php echo $_SESSION['username']; ?> </h1>
 
+
         <h1> UserID: <?php echo $_SESSION['userId']; ?> </h1>
 
-        <h1> Email: <?php include "db/Login_Register/db.php"; echo FindEmail($_SESSION['userId']); ?> </h1>
+        <h1> email: <?php echo $_SESSION['email']; ?> </h1>
 
 
         <h2>Change your username </h2>
@@ -29,8 +30,10 @@ include "html/_header.php";
 
 
         <?php
+    if(isset($_SESSION['error'])){
         echo $_SESSION['error'] . "<br><br>";
-        ?>
+    }
+    ?>
 
         <br>
         <div class="box">

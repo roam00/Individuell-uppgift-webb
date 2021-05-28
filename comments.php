@@ -32,7 +32,7 @@ include "html/_header.php";
 </div>
 
 
-    <?php
+<?php
      echo "<div id='center'>";
 
     

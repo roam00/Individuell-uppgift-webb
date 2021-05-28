@@ -32,7 +32,7 @@ function FindUsername($userId) {
 }
 
 function FindEmail($userId) {
-    $db = new SQLite3("db/labb2db.db");
+    $db = new SQLite3("../labb2db.db");
     $sql = "SELECT * FROM 'User' WHERE userId = :userId";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':userId', $userId, SQLITE3_TEXT);
@@ -122,6 +122,9 @@ function InsertIntoDatabase($salt){
     if($stmt->execute()){
         $db->close();
         return true;
+        $_SESSION['userId'] = FindId($username);
+        $_SESSION['email'] = FindEmail($_SESSION['userId']);
+
     }
     else{
         $db->close();
@@ -131,30 +134,41 @@ function InsertIntoDatabase($salt){
 
 function UsernameChange($newUsername){
 
-    if(!isUserInDB($newUsername)){
-        $userId = $_SESSION['userId'];
-    $db = new SQLite3("../labb2db.db");
-    $sql = "UPDATE 'User' SET username = :newUsername WHERE userId = :userId";
-    $stmt = $db->prepare($sql);
-    $stmt->bindParam(':newUsername', $newUsername, SQLITE3_TEXT);
-    $stmt->bindParam(':userId', $userId, SQLITE3_INTEGER);
-    $stmt->execute();
-    $db->close();
-    $_SESSION['username'] = $newUsername;
+    if(0 === preg_match("/\S+/", $newUsername)){
+        $_SESSION['error'] = "You must enter an username";
     }
     else {
-        $_SESSION['error'] = "Username already taken";
-    
+        if(!isUserInDB($newUsername)){
+            $userId = $_SESSION['userId'];
+            $db = new SQLite3("../labb2db.db");
+            $sql = "UPDATE 'User' SET username = :newUsername WHERE userId = :userId";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(':newUsername', $newUsername, SQLITE3_TEXT);
+            $stmt->bindParam(':userId', $userId, SQLITE3_INTEGER);
+            $stmt->execute();
+            $db->close();
+            $_SESSION['username'] = $newUsername;
+            unset($_SESSION['error']);
+        }
+        else {
+            $_SESSION['error'] = "Username already taken";
+        }
     }
+
+   
 
     
 }
 
 function EmailChange($newEmail){
 
+    if(0 === preg_match("/\S+@\S+\.\S+/", $newEmail)){
+        $_SESSION['error'] = "You must enter a valid email address";
+    }
+else {
     if(!isEmailInDB($newEmail)){
         $userId = $_SESSION['userId'];
-        $db = new SQLite3("db/labb2db.db");
+        $db = new SQLite3("../labb2db.db");
         $sql = "UPDATE 'User' SET email = :newEmail WHERE userId = :userId";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(':newEmail', $newEmail, SQLITE3_TEXT);
@@ -162,12 +176,12 @@ function EmailChange($newEmail){
         $stmt->execute();
         $db->close();
         $_SESSION['email'] = $newEmail;
-    
+        unset($_SESSION['error']);
     }
     else {
         $_SESSION['error'] = "Email already taken";
-    
     }
+}
     
 }
 

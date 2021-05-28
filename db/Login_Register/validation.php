@@ -31,6 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         header('Location: ../../index.php');
         unset($_SESSION['error']);
         $_SESSION['username'] = $_POST['username'];
+        
         InsertIntoDatabase(SaltGeneration());
     }
     else{
