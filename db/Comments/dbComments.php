@@ -47,9 +47,7 @@ function FindUsernameFromComments($userId) {
 
 }
 
-function AddReply(){
-
-    
+function AddReply($replyId){
 
     $userId = $_SESSION['userId'];
     $message = $_POST['comment'];
@@ -59,11 +57,12 @@ function AddReply(){
 
 
     $db = new SQLite3("../labb2db.db");
-    $sql = "INSERT INTO 'Comments' ('userId', 'comment', 'date') VALUES (:userId, :message, :date)";
+    $sql = "INSERT INTO 'Comments' ('userId', 'comment', 'date', 'answerCommentID') VALUES (:userId, :message, :date, :answerCommentID)";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':userId', $userId, SQLITE3_TEXT);
     $stmt->bindParam(':message', $message, SQLITE3_TEXT);
     $stmt->bindParam(':date', $date, SQLITE3_TEXT);
+    $stmt->bindParam(':answerCommentID', $replyId, SQLITE3_INTEGER);
 
     if($stmt->execute()){
         $db->close();
@@ -96,7 +95,7 @@ while ($row = $result->fetchArray())
     <h4>" . $row['comment'] . "</h4> 
     </div>
     <div class='commentBottom'>
-    <h3>" . $row['date'] . "<form action='answerComment.php' method='post'>" ."<button name='reply' type='submit' value=" . $row['userId'] . ">Reply</button> " ."</form>" . "</h3>
+    <h3>" . $row['date'] . "<form action='answerComment.php' method='post'>" ."<button name='reply' type='submit' value=" . $row['commentID'] . ">Reply</button> " ."</form>" . "</h3>
     </div>
     
     </div>";

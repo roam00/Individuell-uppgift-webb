@@ -9,7 +9,9 @@ if(!(isset($_SESSION['username']))){
 }
 
 echo "reply: " . $_POST['reply'];
+
 ?>
+<?php echo "'" . $_POST['reply'] . "'"?>
 
 <!DOCTYPE html>
 <html>
@@ -40,7 +42,7 @@ include "html/_header.php";
                 <label for="comment">Comment: </label><br>
                 <!-- <input type="text" id="comment" name="comment"><br> -->
                 <textarea name="comment" id="comment"></textarea><br>
-                <input type="hidden" name="answerCommentId" value= $_POST['reply']></input>
+                <input type="hidden" name="answerCommentId" value= <?php echo "'" . $_POST['reply'] . "'"?>></input>
                 <button type="submit">Send</button>
 
             </form>

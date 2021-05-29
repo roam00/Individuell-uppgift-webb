@@ -9,13 +9,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     if(0 === count($errors)){
-        if(!isset($_POST['reply'])){
+        if(!isset($_POST['answerCommentId'])){
             include "dbComments.php";
             AddComment();
         }
         else {
             include "dbComments.php";
-            AddReply();
+            AddReply($_POST['answerCommentId']);
         }
         
     }
