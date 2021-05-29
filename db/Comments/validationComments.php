@@ -9,8 +9,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     if(0 === count($errors)){
-        include "dbComments.php";
-        AddComment();
+        if(!isset($_POST['reply'])){
+            include "dbComments.php";
+            AddComment();
+        }
+        else {
+            include "dbComments.php";
+            AddReply();
+        }
+        
     }
     else{
         foreach($errors as $value){

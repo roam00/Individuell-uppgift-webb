@@ -47,6 +47,36 @@ function FindUsernameFromComments($userId) {
 
 }
 
+function AddReply(){
+
+    
+
+    $userId = $_SESSION['userId'];
+    $message = $_POST['comment'];
+
+    date_default_timezone_set("Europe/Stockholm");
+    $date = date("Y-m-d H:i:s");
+
+
+    $db = new SQLite3("../labb2db.db");
+    $sql = "INSERT INTO 'Comments' ('userId', 'comment', 'date') VALUES (:userId, :message, :date)";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':userId', $userId, SQLITE3_TEXT);
+    $stmt->bindParam(':message', $message, SQLITE3_TEXT);
+    $stmt->bindParam(':date', $date, SQLITE3_TEXT);
+
+    if($stmt->execute()){
+        $db->close();
+        return true;
+    }
+    else{
+        $db->close();
+        return false;
+    }
+
+}
+
+
 
 /* . $row['username']*/
 function Show(){
@@ -63,10 +93,10 @@ while ($row = $result->fetchArray())
     <h3 id='idNum'> #" . $row['commentID'] . "</h3> <h4 id='idName'> Author: " . FindUsernameFromComments($row['userId']) . "</h4>
     </div>
     <div class='commentMid'> 
-    <h2>" . $row['comment'] . "</h2> 
+    <h4>" . $row['comment'] . "</h4> 
     </div>
     <div class='commentBottom'>
-    <h3>" . $row['date'] . "</h3>
+    <h3>" . $row['date'] . "<form action='answerComment.php' method='post'>" ."<button name='reply' type='submit' value=" . $row['userId'] . ">Reply</button> " ."</form>" . "</h3>
     </div>
     
     </div>";
@@ -76,6 +106,7 @@ echo "</div>";
 $db->close();
 
 }
+
 
 
 function SearchForComment($commentTerm) {
@@ -94,7 +125,7 @@ function SearchForComment($commentTerm) {
         <h3 id='idNum'> #" . $row['commentID'] . "</h3> <h4 id='idName'> Author: " . FindUsernameFromComments($row['userId'])  .  "</h4>
         </div>
         <div class='commentMid'> 
-        <h2>" . $row['comment'] . "</h2> 
+        <h3>" . $row['comment'] . "</h3> 
         </div>
         <div class='commentBottom'>
         <h3>" . $row['date'] . "</h3>
