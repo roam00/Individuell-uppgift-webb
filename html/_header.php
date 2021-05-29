@@ -2,6 +2,7 @@
         <li><a href="index.php">Home</a></li>
         <li><a href="comments.php">Show comments</a></li>
         <li><a href="writeComment.php">Write a comment</a></li>
+        <li><a href="searchPage.php">Search for a comment</a></li>
         <?php
         if(!isset($_SESSION['username'])){
             echo "<li style='float: right;'><a href='login.php'>Log in</a></li>

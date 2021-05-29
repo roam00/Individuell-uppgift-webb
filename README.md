@@ -26,3 +26,4 @@ TODO
 * error vid login om det blir fel
 * överväg att ta bort footer
 * fråga stefan / hanna om forumtrådar ska ligga på nya sidor d.v.s. annan url
+* ändra html head så att titlen stämmer överens

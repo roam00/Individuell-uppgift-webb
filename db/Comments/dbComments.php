@@ -78,6 +78,36 @@ $db->close();
 }
 
 
+function SearchForComment($commentTerm) {
+
+    $newCommentTerm = '%' . $commentTerm . '%';
+    $db = new SQLite3("db/labb2db.db");
+    $stmt = $db->prepare("SELECT * FROM 'Comments' WHERE comment LIKE :newCommentTerm ORDER BY commentId");
+    $stmt->bindParam(':newCommentTerm', $newCommentTerm, SQLITE3_TEXT);
+    $result = $stmt->execute();
+    
+    echo "<div class='formDiv' id='commentPageDiv'>";
+    while ($row = $result->fetchArray()) {
+        echo "<div class='commentBox'>
+
+        <div class='commentTop'>
+        <h3 id='idNum'> #" . $row['commentID'] . "</h3> <h4 id='idName'> Author: " . FindUsernameFromComments($row['userId'])  .  "</h4>
+        </div>
+        <div class='commentMid'> 
+        <h2>" . $row['comment'] . "</h2> 
+        </div>
+        <div class='commentBottom'>
+        <h3>" . $row['date'] . "</h3>
+        </div>
+        
+        </div>";
+    }
+    echo "</div>";
+    
+$db->close();
+}
+
+
 
 
 /*
