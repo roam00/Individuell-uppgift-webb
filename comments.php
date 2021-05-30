@@ -1,8 +1,12 @@
 <?php
-session_start();
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
+
 if(!(isset($_SESSION['username']))){
     
-    header('Location: login.php');
+    header('Location: ../../login.php');
     
     die();
     echo "You have to log in to access that page";
@@ -17,6 +21,9 @@ if(!(isset($_SESSION['username']))){
     <title>Show comments</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/style.css">
+    <script defer src="js/jQuery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
 </head>
 
@@ -32,21 +39,11 @@ include "html/_header.php";
 </div>
 
 
-<?php
-     echo "<div id='center'>";
+<div id="showData"></div>
+
+
 
     
-    include "db/Comments/dbComments.php";
-    Show();
-
-    echo "</div>";
-    ?>
-
-
-
-    <?php
-include "html/_footer.php";
-    ?>
 
 
 </body>

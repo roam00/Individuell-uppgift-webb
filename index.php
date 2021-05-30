@@ -22,9 +22,7 @@ include "db/Login_Register/db.php";
 
 ?>
 
-    <?php
-include "html/_footer.php";
-    ?>
+    
 
 </body>
 

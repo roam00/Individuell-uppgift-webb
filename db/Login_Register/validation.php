@@ -1,8 +1,11 @@
 <?php
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
+
 
 $errors = array();
-
-session_start();
 
 include "db.php";
 if($_SERVER['REQUEST_METHOD'] == 'POST'){

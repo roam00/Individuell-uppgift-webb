@@ -1,8 +1,12 @@
 <?php
-session_start();
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
+
 if(!(isset($_SESSION['username']))){
     
-    header('Location: login.php');
+    header('Location: ../../login.php');
     
     die();
     echo "You have to log in to access that page";
@@ -34,7 +38,7 @@ include "html/_header.php";
 
         <br>
         <div class="box">
-            <form id="formId" method="post" action="searchResults.php">
+            <form id="formId" method="post" action="db/Comments/searchResults.php">
 
                 <label for="search">Search: </label><br>
                 <!-- <input type="text" id="comment" name="comment"><br> -->
@@ -48,9 +52,7 @@ include "html/_header.php";
 
     </div>
 
-    <?php
-include "html/_footer.php";
-    ?>
+    
 
 </body>
 

@@ -11,10 +11,8 @@ if(!(isset($_SESSION['username']))){
     die();
     echo "You have to log in to access that page";
 }
-header("Location: ../../profile.php");
 
-include "db.php";
-
-UsernameChange($_POST['newUsername']);
+include "dbComments.php";
+show();
 
 ?>

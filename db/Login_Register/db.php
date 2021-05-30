@@ -5,6 +5,8 @@ if(!isset($_SESSION))
 } 
 
 
+
+// Returnerar userId som stämmer med användarnamn
 function FindId($username) {
     $db = new SQLite3("../labb2db.db");
     $sql = "SELECT * FROM 'User' WHERE username = :username";
@@ -18,6 +20,8 @@ function FindId($username) {
 
 }
 
+
+// Returnerar användarnamn som stämmer med userId
 function FindUsername($userId) {
     $db = new SQLite3("../labb2db.db");
     $sql = "SELECT * FROM 'User' WHERE userId = :userId";
@@ -31,6 +35,8 @@ function FindUsername($userId) {
 
 }
 
+
+// Returnerar email som stämmer med userId
 function FindEmail($userId) {
     $db = new SQLite3("../labb2db.db");
     $sql = "SELECT * FROM 'User' WHERE userId = :userId";
@@ -45,7 +51,7 @@ function FindEmail($userId) {
 }
 
 
-
+//Loginfunktionaliteten som kollar om login-inputen stämmer
 function Search($userId, $psw) {
 
     $db = new SQLite3("../labb2db.db");
@@ -68,7 +74,7 @@ function Search($userId, $psw) {
 }
 
 
-
+// Visar om användaren finns i databasen eller ej
 function isUserInDB($username){
     $db = new SQLite3("../labb2db.db");
     $stmt = $db->prepare("SELECT * FROM 'User' WHERE username = :username");
@@ -84,6 +90,7 @@ function isUserInDB($username){
 }
 
 
+// Kollar om emailen finns i databasen
 function isEmailInDB($email){
     $db = new SQLite3("../labb2db.db");
     $stmt = $db->prepare("SELECT * FROM 'User' WHERE email = :email");
@@ -99,11 +106,13 @@ function isEmailInDB($email){
 }
 
 
+// Skapar en random sträng sedan krypterar den med SHA-1
 function SaltGeneration(){
     return substr(sha1(mt_rand()), 0, 22);
 }
 
 
+// Skickar in en användare i databasen
 function InsertIntoDatabase($salt){
 
     $password = $_POST['password'];
@@ -132,6 +141,8 @@ function InsertIntoDatabase($salt){
     }
 }
 
+
+// Ändrar användarnamnet på en användare
 function UsernameChange($newUsername){
 
     if(0 === preg_match("/\S+/", $newUsername)){
@@ -160,6 +171,8 @@ function UsernameChange($newUsername){
     
 }
 
+
+// Ändrar email på en användare
 function EmailChange($newEmail){
     
     if(0 === preg_match("/\S+@\S+\.\S+/", $newEmail)){
@@ -185,6 +198,7 @@ function EmailChange($newEmail){
 }
 
 
+// Ändrar lösenord på en användare
 function PasswordChange($newPassword){
 
     if(0 === preg_match("/\S+/", $newPassword)){
@@ -205,8 +219,5 @@ function PasswordChange($newPassword){
         $db->close();
     }
 }
-
-
-
 
 ?>

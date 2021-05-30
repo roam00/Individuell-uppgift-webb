@@ -46,9 +46,7 @@ include "html/_header.php";
 
     </div>
 
-    <?php
-include "html/_footer.php";
-    ?>
+  
 
 </body>
 
