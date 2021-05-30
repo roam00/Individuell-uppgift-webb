@@ -75,36 +75,108 @@ function AddReply($replyId){
 
 }
 
+function FindCommentById($commentId) {
+    $db = new SQLite3("db/labb2db.db");
+    $sql = "SELECT * FROM 'Comments' WHERE commentID = :commentID";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':commentID', $commentId, SQLITE3_TEXT);
+    $result = $stmt->execute();
+
+    $row = $result->fetchArray();
+
+    return $row['comment'];
+
+}
+
+function FindAuthorByCommentId($commentId) {
+    $db = new SQLite3("db/labb2db.db");
+    $sql = "SELECT * FROM 'Comments' WHERE commentID = :commentID";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':commentID', $commentId, SQLITE3_TEXT);
+    $result = $stmt->execute();
+
+    $row = $result->fetchArray();
+
+    return FindUsernameFromComments($row['userId']);
+
+}
+
+function FindUserIdByCommentId($commentId) {
+    $db = new SQLite3("db/labb2db.db");
+    $sql = "SELECT * FROM 'Comments' WHERE commentID = :commentID";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':commentID', $commentId, SQLITE3_TEXT);
+    $result = $stmt->execute();
+
+    $row = $result->fetchArray();
+
+    return $row['userId'];
+
+}
 
 
 /* . $row['username']*/
 function Show(){
 
 $db = new SQLite3("db/labb2db.db");
-$result = $db->query("SELECT comment, commentID, userId, date FROM 'Comments' ORDER BY commentID");
+$result = $db->query("SELECT comment, commentID, userId, date, answerCommentID FROM 'Comments' ORDER BY commentID");
     
 echo "<div class='formDiv' id='commentPageDiv'>";
 while ($row = $result->fetchArray())
 {
-    echo "<div class='commentBox'>
 
-    <div class='commentTop'>
-    <h3 id='idNum'> #" . $row['commentID'] . "</h3> <h4 id='idName'> Author: " . FindUsernameFromComments($row['userId']) . "</h4>
-    </div>
-    <div class='commentMid'> 
-    <h4>" . $row['comment'] . "</h4> 
-    </div>
-    <div class='commentBottom'>
-    <h3>" . $row['date'] . "<form action='answerComment.php' method='post'>" ."<button name='reply' type='submit' value=" . $row['commentID'] . ">Reply</button> " ."</form>" . "</h3>
-    </div>
-    
-    </div>";
+    if(isset($row['answerCommentID'])){
+        echo "<div class='commentBox'>
+
+        <div class='commentTop'>
+        <h3 id='idNum'> #" . $row['commentID'] . "</h3> <h4 id='idName'> Author: " . FindUsernameFromComments($row['userId']) . "</h4>
+        </div>
+        <div class='commentMid'> 
+
+        <div class='answerDiv'>
+        <div class='commentTop'>
+        <h3 id='idNum'> #" . $row['answerCommentID'] . "</h3> <h4 id='idName'> Author: " . FindAuthorByCommentId($row['answerCommentID']) . "</h4>
+        </div>
+        <h3>"; 
+        echo FindCommentById($row['answerCommentID']);
+        echo "</h3>
+        </div>
+
+        <h4>" . $row['comment'] . "</h4> 
+        </div>
+        <div class='commentBottom'>
+        <h3>" . $row['date'] . "<form action='answerComment.php' method='post'>" ."<button name='reply' type='submit' value=" . $row['commentID'] . ">Reply</button> " ."</form>" . "</h3>
+        </div>
+        
+        </div>";
+
+
+    }
+    else {
+        echo "<div class='commentBox'>
+
+        <div class='commentTop'>
+        <h3 id='idNum'> #" . $row['commentID'] . "</h3> <h4 id='idName'> Author: " . FindUsernameFromComments($row['userId']) . "</h4>
+        </div>
+        <div class='commentMid'>
+
+
+        <h4>" . $row['comment'] . "</h4> 
+        </div>
+        <div class='commentBottom'>
+        <h3>" . $row['date'] . "<form action='answerComment.php' method='post'>" ."<button name='reply' type='submit' value=" . $row['commentID'] . ">Reply</button> " ."</form>" . "</h3>
+        </div>
+        
+        </div>";
+    }
+
     
 }
 echo "</div>";
 $db->close();
 
 }
+    
 
 
 

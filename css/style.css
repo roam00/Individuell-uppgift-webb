@@ -158,3 +158,11 @@ textarea {
 #profileDiv {
     width: 600px;
 }
+
+.answerDiv {
+    padding: 5px 22px;
+    border-style: solid;
+    border-width: 2px;
+    background-color: rgb(201, 201, 201);
+
+}

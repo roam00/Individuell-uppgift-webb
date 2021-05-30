@@ -29,9 +29,6 @@ include "html/_header.php";
 
         <h1> Username: <?php echo $_SESSION['username']; ?> </h1>
 
-
-        <h1> UserID: <?php echo $_SESSION['userId']; ?> </h1>
-
         <h1> Email: <?php echo $_SESSION['email']; ?> </h1>
 
 
