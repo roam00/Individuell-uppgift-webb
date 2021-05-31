@@ -8,7 +8,6 @@ if(!(isset($_SESSION['username']))){
     header('Location: login.php');
     
     die();
-    echo "You have to log in to access that page";
 }
 ?>
 

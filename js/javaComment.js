@@ -15,7 +15,7 @@ form.addEventListener("submit", (e) =>{
     let messages = []
 
     if (comment.value.trim() == ""  || comment.value.trim() == null){
-        messages.push("You must write a comment.")
+        messages.push("The comment cannot be empty")
     }
     if (messages.length > 0){
         e.preventDefault();

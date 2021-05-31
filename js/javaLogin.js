@@ -10,13 +10,13 @@ form.addEventListener("submit", (e) =>{
     let messages = []
 
     if (username.value.trim() == ""  || username.value.trim() == null){
-        messages.push("Du måste ange ett namn.")
+        messages.push("You must enter a username")
     }
     if (password.value.trim() == ""  || password.value.trim() == null){
-        messages.push("Du måste skriva ett lösenord.")
+        messages.push("You must enter a password")
     }
     if (messages.length > 0){
         e.preventDefault();
-        errorElement.innerText = messages.join(' , ')
+        errorElement.innerText = messages.join(', ')
     }
 })

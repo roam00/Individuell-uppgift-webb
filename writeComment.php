@@ -9,7 +9,6 @@ if(!(isset($_SESSION['username']))){
     header('Location: ../../login.php');
     
     die();
-    echo "You have to log in to access that page";
 }
 
 ?>
@@ -22,7 +21,7 @@ if(!(isset($_SESSION['username']))){
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/style.css">
     <script defer src="js/javaComment.js"></script>
-    
+
     </head>
 
 <body>

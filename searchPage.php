@@ -9,7 +9,6 @@ if(!(isset($_SESSION['username']))){
     header('Location: ../../login.php');
     
     die();
-    echo "You have to log in to access that page";
 }
 
 ?>
@@ -21,8 +20,6 @@ if(!(isset($_SESSION['username']))){
     <title>Search page</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/style.css">
-    <!--<script defer src="js/javaComment.js"></script>-->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 </head>
 
 <body>
@@ -42,7 +39,7 @@ include "html/_header.php";
 
                 <label for="search">Search: </label><br>
                 <!-- <input type="text" id="comment" name="comment"><br> -->
-                <input type ="text" name="search" id="search"></input><br>
+                <input type="text" name="search" id="search"></input><br>
 
                 <button type="submit">Search</button>
 
@@ -52,7 +49,7 @@ include "html/_header.php";
 
     </div>
 
-    
+
 
 </body>
 

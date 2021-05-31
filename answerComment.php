@@ -9,7 +9,6 @@ if(!(isset($_SESSION['username']))){
     header('Location: ../../login.php');
     
     die();
-    echo "You have to log in to access that page";
 }
 
 
@@ -24,8 +23,7 @@ if(!(isset($_SESSION['username']))){
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/style.css">
     <script defer src="js/javaComment.js"></script>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-</head>
+    </head>
 
 <body>
 
