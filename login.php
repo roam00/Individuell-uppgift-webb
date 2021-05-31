@@ -21,6 +21,14 @@ include "html/_header.php";
             <h1> Log in </h1>
         </div>
 
+        <?php
+        session_start();
+    if(isset($_SESSION['error'])){
+        echo $_SESSION['error'] . "<br><br>";
+        unset($_SESSION['error']);
+        }
+    
+    ?>
 
 
         <div id="error"></div>

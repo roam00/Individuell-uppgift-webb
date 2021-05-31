@@ -54,23 +54,30 @@ function FindEmail($userId) {
 //Loginfunktionaliteten som kollar om login-inputen stämmer
 function Search($userId, $psw) {
 
-    $db = new SQLite3("../labb2db.db");
-    $stmt = $db->prepare("SELECT * FROM 'User' WHERE userId = :userId");
-    $stmt->bindParam(':userId', $userId, SQLITE3_TEXT);
-    $result = $stmt->execute();
-    $row = $result->fetchArray();
-    if(sha1($row['salt'] . $psw) == $row['passwordhash']){
-        echo "lyckad";
-        header('Location: ../../index.php');
-        if(!isset($_SESSION['userId'])){
-            session_start();
-            $_SESSION['userId'] = $userId;
+    if(isUserInDB(FindUsername($userId))){
+        $db = new SQLite3("../labb2db.db");
+        $stmt = $db->prepare("SELECT * FROM 'User' WHERE userId = :userId");
+        $stmt->bindParam(':userId', $userId, SQLITE3_TEXT);
+        $result = $stmt->execute();
+        $row = $result->fetchArray();
+        if(sha1($row['salt'] . $psw) == $row['passwordhash']){
+            echo "lyckad";
+            header('Location: ../../index.php');
+            if(!isset($_SESSION['userId'])){
+                session_start();
+                $_SESSION['userId'] = $userId;
+            }
+        }
+        else{
+            $_SESSION['error'] = "Login failed";
+            header('Location: ../../login.php');
         }
     }
-    else{
-        echo "<script>alert('Login failed')</script>";
+    else {
+        $_SESSION['error'] = "Login failed";
         header('Location: ../../login.php');
     }
+    
 }
 
 
@@ -217,6 +224,7 @@ function PasswordChange($newPassword){
         $stmt->bindParam(':userId', $userId, SQLITE3_INTEGER);
         $stmt->execute();
         $db->close();
+        unset($_SESSION['error']);
     }
 }
 

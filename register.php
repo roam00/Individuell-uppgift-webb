@@ -30,6 +30,7 @@ else{
         foreach($err as $value){
             echo $value . "<br>";
         }
+        unset($_SESSION['error']);
     }
 }
 

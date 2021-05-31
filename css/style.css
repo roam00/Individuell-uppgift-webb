@@ -108,7 +108,7 @@ textarea {
 
 #center {
     position: absolute;
-    left: 20%;
+    left: 30%;
 }
 
 
@@ -119,10 +119,6 @@ textarea {
 }
 
 
-.right {
-    float: right;
-}
-
 .formDiv {
     background-color: lightgray;
     width: 294px;
@@ -130,13 +126,13 @@ textarea {
     padding: 50px 50px;
 
     position: sticky;
-    left: 20%;
+    left: 30%;
 }
 
 #textDiv {
     width: 700px;
     position: sticky;
-    left: 20%;
+    left: 30%;
 }
 
 #commentPageDiv {
@@ -162,4 +158,7 @@ textarea {
     background-color: rgb(201, 201, 201);
     width: 550px;
 
+}
+.headerRight {
+    float: right;
 }

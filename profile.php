@@ -17,9 +17,10 @@ if(!(isset($_SESSION['username']))){
 <html>
 
 <head>
-    <title> Home </title>
+    <title> Profile </title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/style.css">
+    <script defer src="js/javaProfile.js"></script>
 </head>
 
 <body>
@@ -43,12 +44,14 @@ include "html/_header.php";
         <?php
     if(isset($_SESSION['error'])){
         echo $_SESSION['error'] . "<br><br>";
-    }
+        unset($_SESSION['error']);
+        }
+    
     ?>
 
         <br>
         <div class="box">
-            <form id="formId" method="post" action="db/Login_Register/usernameChange.php">
+            <form class="formId" id="form1" method="post" action="db/Login_Register/usernameChange.php">
 
                 <label for="newUsername">New username: </label><br>
                 <input type="text" id="newUsername" name="newUsername"><br>
@@ -60,11 +63,11 @@ include "html/_header.php";
         </div>
 
         <h2>Change your email </h2>
-        <div id="error"></div>
+
 
         <br>
         <div class="box">
-            <form id="formId" method="post" action="db/Login_Register/emailChange.php">
+            <form class="formId" id="form2" method="post" action="db/Login_Register/emailChange.php">
 
                 <label for="newEmail">New email: </label><br>
                 <input type="text" id="newEmail" name="newEmail"><br>
@@ -76,11 +79,11 @@ include "html/_header.php";
         </div>
 
         <h2>Change your password </h2>
-        <div id="error"></div>
+    
 
         <br>
         <div class="box">
-            <form id="formId" method="post" action="db/Login_Register/passwordChange.php">
+            <form class="formId" id="form3" method="post" action="db/Login_Register/passwordChange.php">
 
                 <label for="newPassword">New password: </label><br>
                 <input type="password" id="newPassword" name="newPassword"><br>

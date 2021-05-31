@@ -144,6 +144,7 @@ echo "<div class='formDiv' id='commentPageDiv'>";
 while ($row = $result->fetchArray())
 {
 
+    // Kollar om komentaren har något answerCommentID
     if(isset($row['answerCommentID'])){
         echo "<div class='commentBox'>
 
@@ -164,7 +165,7 @@ while ($row = $result->fetchArray())
         <h4>" . $row['comment'] . "</h4> 
         </div>
         <div class='commentBottom'>
-        <h3>" . $row['date'] . "<form action='answerComment.php' method='post'>" ."<button name='reply' type='submit' value=" . $row['commentID'] . ">Reply</button> " ."</form>" . "</h3>
+        <h4>" . $row['date'] . "<form action='answerComment.php' method='post'>" ."<button name='reply' type='submit' value=" . $row['commentID'] . ">Reply</button> " ."</form>" . "</h4>
         </div>
         
         </div>";
@@ -183,7 +184,7 @@ while ($row = $result->fetchArray())
         <h4>" . $row['comment'] . "</h4> 
         </div>
         <div class='commentBottom'>
-        <h3>" . $row['date'] . "<form action='answerComment.php' method='post'>" ."<button name='reply' type='submit' value=" . $row['commentID'] . ">Reply</button> " ."</form>" . "</h3>
+        <h4>" . $row['date'] . "<form action='answerComment.php' method='post'>" ."<button name='reply' type='submit' value=" . $row['commentID'] . ">Reply</button> " ."</form>" . "</h4>
         </div>
         
         </div>";
@@ -196,40 +197,6 @@ $db->close();
 
 }
     
-
-
-
-/*
-function SearchForComment($commentTerm) {
-
-    $newCommentTerm = '%' . $commentTerm . '%';
-    $db = new SQLite3("../labb2db.db");
-    $stmt = $db->prepare("SELECT * FROM 'Comments' WHERE comment LIKE :newCommentTerm ORDER BY commentId");
-    $stmt->bindParam(':newCommentTerm', $newCommentTerm, SQLITE3_TEXT);
-    $result = $stmt->execute();
-    
-    echo "<div class='formDiv' id='commentPageDiv'>";
-    while ($row = $result->fetchArray()) {
-        echo "<div class='commentBox'>
-
-        <div class='commentTop'>
-        <h3 id='idNum'> #" . $row['commentID'] . "</h3> <h4 id='idName'> Author: " . FindUsernameFromComments($row['userId'])  .  "</h4>
-        </div>
-        <div class='commentMid'> 
-        <h3>" . $row['comment'] . "</h3> 
-        </div>
-        <div class='commentBottom'>
-        <h3>" . $row['date'] . "</h3>
-        </div>
-        
-        </div>";
-    }
-    echo "</div>";
-    
-$db->close();
-}
-*/
-
 
 // Sökfunktionalitet som hittar alla kommentarer som innehåller en viss substring
 function SearchForComment($commentTerm) {
@@ -244,6 +211,7 @@ function SearchForComment($commentTerm) {
 while ($row = $result->fetchArray())
 {
 
+    // Kollar om kommentaren har något answerCommentID
     if(isset($row['answerCommentID'])){
         echo "<div class='commentBox'>
 

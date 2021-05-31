@@ -12,22 +12,17 @@ function valideraEmail(email){
 }
 
 
-console.log(valideraEmail(email.value));
-console.log(email.value);
-console.log(username.value);
-console.log(password.value);
-
 form.addEventListener("submit", (e) =>{
     let messages = []
 
     if (username.value.trim() == ""  || username.value.trim() == null){
-        messages.push("Du måste ange ett namn.")
+        messages.push("You must enter an username.")
     }
     if (!valideraEmail(email.value)){
-        messages.push("Du måste ange en giltigt emailaddress.")
+        messages.push("You must enter a valid email.")
     }
     if (password.value.trim() == ""  || password.value.trim() == null){
-        messages.push("Du måste skriva ett lösenord.")
+        messages.push("You must enter a password.")
     }
     if (messages.length > 0){
         e.preventDefault();

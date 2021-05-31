@@ -18,7 +18,7 @@ if(!(isset($_SESSION['username']))){
 
 <head>
 
-    <title>Show comments</title>
+    <title>Comments</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/style.css">
     <script defer src="js/jQuery.js"></script>
