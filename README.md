@@ -1,4 +1,4 @@
-# labb1.3
+# Individuell uppgift
 
 Uppgiften
 Uppgiften går ut på att skapa en sida med kommentarsfunktionalitet. Endast inloggade
@@ -6,16 +6,24 @@ användare ska kunna posta kommentarer. Således behöver användare kunna regis
 och logga in. Användare ska även kunna logga ut. Kommentarer listas med avsändare och
 meddelande. Den användare som är inloggad är den som står som avsändare för en kommentar.
 Användare måste registreras med e-post och lösenord.
+
+
 All formulärdata ska (på ett adekvat sätt) valideras på både klient-, och serversidan. Använderes
 lösenord får inte sparas som plain-text, utan ska hash:as och saltas. Alla sidor måste vara
 skyddade från SQL injections.
+
+
 Att implementera AJAX (så att inte hela sidan laddar om) är inte ett krav gör att få
 godkänt, det är däremot ett krav för att få VG på uppgiften. AJAX är särskilt lämpligt att
 använda vid t.ex. publicering av användarnas kommentarer.
-Sidan ska se \professionell" ut. Oseriösa eller slarviga inlämningar godtas ej. Det ska alltså
+
+
+Sidan ska se "professionell" ut. Oseriösa eller slarviga inlämningar godtas ej. Det ska alltså
 finnas en välgrundad och egenskriven CSS (bootstrap och andra färdiga CSS:er får inte
 användas) och inline CSS är inte godkänt.
 2
+
+
 Krav för Godkänt
 • Det ska gå att posta kommentarer
 • Endast inloggade användare ska kunna posta kommentarer
@@ -38,13 +46,15 @@ javascript användas för validering.
 • Sidan ska se profesionell ut (genomtänkt och välarbetad). Oseriösa eller slarviga inlämningar
 godtas ej
 • Det ska finnas en egenskriven CSS som styr designen. Inline CSS är inte tillåtet.
-3
+
+
+
 Krav för VG
 • Alla krav för godkänt är uppfyllda.
 • Implementera AJAX för att undvika att hela sidan laddas om vid varje liten förändring.
 (Åtminstone vid publicering av användarnas kommentarer)
 Utöver AJAX måste även minst 3 av nedanstående krav uppfyllas för att få VG.
-+ Implementera en \profilsida" där användaren kan byta lösenord, användarnamn och
++ Implementera en "profilsida" där användaren kan byta lösenord, användarnamn och
 eventuellt ändra annan lagrad information.
 + Användaren ska kunna skapa forumtrådar för att strukturera upp diskussionen.
 + Implementera en sökfunktion som endast visar de inlägg (eller trådar om detta har
