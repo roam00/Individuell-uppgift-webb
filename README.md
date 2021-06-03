@@ -1,6 +1,6 @@
 # Individuell uppgift
 
-Uppgiften
+
 Uppgiften går ut på att skapa en sida med kommentarsfunktionalitet. Endast inloggade
 användare ska kunna posta kommentarer. Således behöver användare kunna registrera sig
 och logga in. Användare ska även kunna logga ut. Kommentarer listas med avsändare och
@@ -21,7 +21,7 @@ använda vid t.ex. publicering av användarnas kommentarer.
 Sidan ska se "professionell" ut. Oseriösa eller slarviga inlämningar godtas ej. Det ska alltså
 finnas en välgrundad och egenskriven CSS (bootstrap och andra färdiga CSS:er får inte
 användas) och inline CSS är inte godkänt.
-2
+
 
 
 Krav för Godkänt
