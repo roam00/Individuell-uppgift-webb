@@ -25,35 +25,37 @@ användas) och inline CSS är inte godkänt.
 
 
 Krav för Godkänt
-• Det ska gå att posta kommentarer
-• Endast inloggade användare ska kunna posta kommentarer
-• Endast inloggade användare ska kunna se funktioner såsom kommentarsformuläret
+* Det ska gå att posta kommentarer
+* Endast inloggade användare ska kunna posta kommentarer
+* Endast inloggade användare ska kunna se funktioner såsom kommentarsformuläret
 { Du kan välja att tvinga användaren att logga in för att använda sidan
-• Användare ska kunna registrera sig med e-post och lösenord
-• Två användare ska inte kunna registrera sig med samma e-post
-• Användarens lösenord får inte sparas som plain-text utan måste hashas och saltas
+* Användare ska kunna registrera sig med e-post och lösenord
+* Två användare ska inte kunna registrera sig med samma e-post
+* Användarens lösenord får inte sparas som plain-text utan måste hashas och saltas
 { Du får använda dig utav password hash och password verify
-• Det ska gå att logga in och logga ut
-• Identifieraren för användaren som är inloggad ska kopplas till nya inlägg som användaren
+* Det ska gå att logga in och logga ut
+* Identifieraren för användaren som är inloggad ska kopplas till nya inlägg som användaren
 gör. (Tips: Sessions variabel). Användarens användarnamn ska visas med kommentarerna.
 { Notera att det inte är användarnamnet som skall lagras tillsammans med kommentaren,
 utan användarens primärnyckel. Annars så riskerar man att hamna
 i en situation där fel namn står på en kommentar (t.ex. om användaren byter
 användarnamn).
-• All formulärdata ska valideras både på klient- och serversidan. På klientsidan skall
+* All formulärdata ska valideras både på klient- och serversidan. På klientsidan skall
 javascript användas för validering.
-• All interaktion med databasen skall vara skyddad från SQL injections
-• Sidan ska se profesionell ut (genomtänkt och välarbetad). Oseriösa eller slarviga inlämningar
+* All interaktion med databasen skall vara skyddad från SQL injections
+* Sidan ska se profesionell ut (genomtänkt och välarbetad). Oseriösa eller slarviga inlämningar
 godtas ej
-• Det ska finnas en egenskriven CSS som styr designen. Inline CSS är inte tillåtet.
+* Det ska finnas en egenskriven CSS som styr designen. Inline CSS är inte tillåtet.
 
 
 
 Krav för VG
-• Alla krav för godkänt är uppfyllda.
-• Implementera AJAX för att undvika att hela sidan laddas om vid varje liten förändring.
+* Alla krav för godkänt är uppfyllda.
+* Implementera AJAX för att undvika att hela sidan laddas om vid varje liten förändring.
 (Åtminstone vid publicering av användarnas kommentarer)
+
 Utöver AJAX måste även minst 3 av nedanstående krav uppfyllas för att få VG.
+
 + Implementera en "profilsida" där användaren kan byta lösenord, användarnamn och
 eventuellt ändra annan lagrad information.
 + Användaren ska kunna skapa forumtrådar för att strukturera upp diskussionen.
